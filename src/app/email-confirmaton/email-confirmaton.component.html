@@ -1,0 +1,8 @@
+<form [formGroup]="userVerifcationForm" (ngSubmit)="onRegister()"  >
+  <h2>Vérificationn email</h2>
+  <mat-form-field>
+  <input matInput placeholder="entrer code" formControlName="userVerificationControl" >
+</mat-form-field>
+<button mat-button color="primary">Valider</button>
+{{person.user_register.email}} {{person.user_tmp.register_code}}
+</form>

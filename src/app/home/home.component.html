@@ -1,0 +1,10 @@
+<p *ngIf="hasAnyRole(['enseignant'])">
+  <a routerLink="/Enseignant">Vous pouvez accèder à la page dédié aux ingenieurs pedagiques</a>
+</p>
+<p *ngIf="hasAnyRole(['etudiant'])">
+  <a routerLink="/Etudiant">Vous allez accèder à l'écrit Réflexif</a>
+</p>
+
+<p *ngIf="hasAnyRole(['admin'])">
+  <a routerLink="/Admin">Vous allez accèder à la page administration</a>
+</p>

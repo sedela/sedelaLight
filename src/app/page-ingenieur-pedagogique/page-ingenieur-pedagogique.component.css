@@ -1,0 +1,33 @@
+.ecritreflexif {
+    list-style: none;
+    display: flex;
+    padding: 10px;
+    margin: 5px;
+}
+
+.blogforum{
+    padding:5px;
+    display: flex;
+}
+
+.action-button {
+    box-sizing: border-box;
+    width: calc(100% - 16px);
+    min-height: 35px;
+    padding: 4px 16px;
+    margin: 8px;
+    border: 1px solid #555;
+    border-radius: 4px;
+  
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 14px;
+    text-align: center;
+  }
+
+.action-button:hover {
+    color: #fff;
+    background-color: #558;
+  }
+  

@@ -1,0 +1,18 @@
+<mat-toolbar color="primary">
+           <div>
+             <a>
+                Sedela
+             </a>
+           </div>
+
+           <div fxFlex fxLayout fxLayoutAlign="flex-end"  fxHide.xs>
+               
+                <form fxLayout fxLayoutGap="20px" class="login-items">
+                        <span>{{userlogin.login}}</span>
+                        <button mat-icon-button color="basic" (click)="onLogOut()" >
+                            <mat-icon>exit_to_app</mat-icon>
+                        </button>    
+              
+                </form>
+           </div>
+</mat-toolbar>

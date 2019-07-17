@@ -1,0 +1,74 @@
+<app-toolbar-nav></app-toolbar-nav>
+<mat-tab-group>
+  <mat-tab label="Ecrit Reflexif">
+    <div fxLayout="row" class=ecritreflexif>
+      <div fxFlex=auto>
+        <mat-list>
+          <form [formGroup]="documentForm">
+            <mat-list-item>
+              <mat-icon mat-list-icon>folder_open</mat-icon>
+              <select formControlName="documentsControl" (change)="getHtmlFromDeltaWithPram()">
+                <option value ='' disabled selected>Ouvrir un écrit réflexif </option>
+                <option *ngFor="let documents of descendingSort(listedocument)" [ngValue]="documents.document_name"
+                  >{{documents.document_name}} </option>
+              </select>
+
+            </mat-list-item>
+            <mat-list-item>
+              <mat-icon mat-list-icon>create_new_folder</mat-icon>
+              <button mat-raised-button  color="primary" (click)="NewDocumentClearEditor()"> Editer Nouveau Document</button>
+            </mat-list-item>
+            <mat-list-item>
+              <mat-icon mat-list-icon>save</mat-icon>
+              <button mat-raised-button color="primary" (click)="saveDocument()">Enregistrer </button>
+            </mat-list-item>
+
+            <mat-list-item>
+              <mat-icon mat-list-icon>save_alt</mat-icon>
+              <button mat-raised-button  color="primary" (click)="openDialog()">Enregistrer sous</button>
+            </mat-list-item>
+
+            <mat-list-item>
+              <mat-icon mat-list-icon>delete_sweep</mat-icon>
+              <button mat-raised-button  color="accent" (click)="deleteDocument()"> Supprimer Document</button>
+            </mat-list-item>
+            <mat-list-item>
+              <mat-icon mat-list-icon>folder_shared</mat-icon>
+              <select formControlName="contactControl">
+                <option value ='' disabled selected>Chosir contact</option>
+                <option *ngFor="let contacts of list_of_contacts" [ngValue]="contacts.contact_id">
+                  {{contacts.contact_id}} </option>
+              </select>
+            </mat-list-item>
+            <mat-list-item>
+                <mat-icon mat-list-icon>send</mat-icon>
+                <button mat-raised-button color="warn" (click)="shareDocument()">Partager</button>
+            </mat-list-item>
+
+
+          </form>
+        </mat-list>
+      </div>
+      <div fxFlex=auto class=ecritreflexif>
+        <div class="blogforum">
+          <app-model [(html)]="htmls" [isReadOnly]="isReadOnly" (htmlChange)='myValueChange($event);'
+            (deltaChange)='myDeltaChange($event);'>
+          </app-model>
+        </div>
+
+        <div class="blogforum">
+          <app-forum [(listOfPost)]="listPosts" (postChange)='myPostChange($event)' [author]="getUserConnected()">
+          
+          </app-forum>
+        </div>
+
+      </div>
+
+    </div>
+
+  </mat-tab>
+  <mat-tab label="SEDELA QUESTIONNAIRE">
+    <radio-ng-model-example></radio-ng-model-example>
+  </mat-tab>
+
+</mat-tab-group>

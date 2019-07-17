@@ -1,0 +1,18 @@
+.ecritreflexif {
+    list-style: none;
+    display: flex;
+    padding: 10px;
+    margin: 5px;
+}
+
+.blogforum{
+    padding:5px;
+    display: flex;
+}
+
+button{
+    width: 100%;
+}
+select {
+    width: 100%;
+}

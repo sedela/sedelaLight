@@ -1,0 +1,22 @@
+mat-form-field{
+  appearance: outline;
+  display: inline;
+  
+
+}
+#register-page {
+  height: 650px; /*height needs to be setup*/
+}
+
+.register-item{
+  margin: auto;
+}
+
+
+.register-form h2{
+  width: auto;
+  padding: auto;
+  margin: 30px;
+  
+}
+

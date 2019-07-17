@@ -1,0 +1,47 @@
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
+button:hover,
+a:hover,
+a:active {
+  color: lightgray;
+}
+
+
+
+.login-items {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+  display: inline;
+  align-items: center;
+  justify-content: center;
+  
+}
+
+.icon {
+  display: inline-block;
+  height: 30px;
+  margin: 0 auto;
+  padding-right: 5px;
+  text-align: center;
+  vertical-align: middle;
+  width: 15%;
+}
+
+.label {
+  display: inline-block;
+  line-height: 30px;
+  margin: 0;
+  width: 85%;
+}
+
+
+mat-form-field{
+  appearance: fill;
+}
+

@@ -1,0 +1,15 @@
+#global{
+    width:100%;
+  }
+  #droite, #gauche {
+      display: inline-block;
+      vertical-align: top;
+  }
+  #gauche {
+      width:60%; 
+  }
+   
+  #droite {
+
+      width: 40%;
+  }

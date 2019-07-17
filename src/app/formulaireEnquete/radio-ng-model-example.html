@@ -1,0 +1,93 @@
+<center>
+    <h1>ENQUETE SUR LE DEVELOPPEMENT PROFESSIONNEL ET SUIVI DE FORMATION</h1>
+</center>
+<p>
+  Dans le cadre d’une recherche sur la formation universitaire en alternance, nous nous 
+  intéressons particulièrement au développement professionnel. Un ensemble d’affirmations relatives à votre <b><u>activité professionnelle</u></b> et à la <b><u>formation universitaire</u> </b> est proposée ci-dessous.
+  En vous référant aux dernières périodes de stage/activité professionnelle et de formation universitaire, veuillez évaluer chacune des affirmations sur une échelle de 1 à 5.
+  L’objectif est de saisir le plus fidèlement possible vos représentations.
+</p>
+
+<p>
+Les informations récoltées seront exploitées à la fois à des fins pédagogiques (suivi et analyse de pratiques)
+et heuristiques (recherche sur le développement professionnel). Pour les besoins de suivi, nous vous demandons
+de bien vouloir renseigner vos nom et prénom ci-dessous. Notez que vos réponses seront ensuite rendues <b>
+entièrement anonymes</b> pour leur exploitation à des fins de recherche. Le questionnaire comporte <b><u>55 questions.</u></b> 
+Merci d’avance de votre précieuse contribution.
+</p>
+
+
+<center>
+    <h3>-----NOTE-----</h3>
+</center>
+
+<p>
+    <strong>
+       Vous participez aux premiers tests du questionnaire. Dans ce cadre,
+       nous faisons figurer exceptionnellement la <font color="red">colonne de droite</font> qui vous
+       permet d’évaluer la formulation des affirmations, en leur attribuant une
+       note de 1 (« incompréhensible ») à 5 (parfaitement compréhensible).
+    </strong>
+</p>
+<div class="example-container mat-elevation-z8">
+    <mat-table #table [dataSource]="dataSource">
+  
+      <!--- Note that these columns can be defined in any order.
+            The actual rendered columns are set as a property on the row definition" -->
+  
+      <!-- Position Column -->
+      <ng-container matColumnDef="position">
+        <mat-header-cell *matHeaderCellDef> # </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.position}} </mat-cell>
+      </ng-container>
+  
+      <!-- Question Column -->
+      <ng-container matColumnDef="question">
+        <mat-header-cell *matHeaderCellDef> 
+            <center>
+            <p>Veuillez cocher le chiffre qui correspond à votre </p> 
+            <p>propre opinion ou attitude sur une échelle de 1 à 5</p>
+            </center>
+         </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.question}} </mat-cell>
+      </ng-container>
+  
+  
+      <!-- Reponse Column -->
+      <ng-container matColumnDef="reponse">
+        <mat-header-cell *matHeaderCellDef> Reponse </mat-header-cell>
+        <mat-cell *matCellDef="let element">
+          
+         <mat-radio-group class="example-radio-group"  [(ngModel)]="element.reponse">
+                <mat-radio-button class="example-radio-button" *ngFor="let reponse of reponsepossible" [value]="reponse">
+                  {{reponse}}
+                </mat-radio-button>
+          </mat-radio-group>
+          </mat-cell>
+          
+      </ng-container>
+
+         <!-- Clarte Column -->
+         <ng-container matColumnDef="clarte">
+          <mat-header-cell *matHeaderCellDef> 
+            <p><font color="red">Clarté</font></p>
+            <p><font color="red"> /5 </font> </p>
+          </mat-header-cell>
+          <mat-cell *matCellDef="let element">
+            
+            <mat-form-field class="example-full-width">
+              <input matInput [(value)]="element.clarte" >
+            </mat-form-field>
+            </mat-cell>
+            
+        </ng-container>
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+     
+    </mat-table>
+  </div>
+   <p></p>
+  <div class="example-container"> 
+      <button mat-raised-button color="accent"  (click)=" listeDesreponses ()">Soumettre Formulaire</button>
+  </div> 
+  

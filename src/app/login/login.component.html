@@ -1,0 +1,42 @@
+<mat-toolbar color="primary">
+           <div>
+             <a>
+                Sedela
+             </a>
+           </div>
+
+           <div fxFlex fxLayout fxLayoutAlign="center center"  fxHide.xs>
+               
+                <form  [formGroup]="loginForm"  (ngSubmit)="onLogin()" fxLayout fxLayoutGap="20px" class="login-items">
+                    
+                        <mat-form-field  class="login-form">
+                            <input matInput type="email" placeholder="Email" formControlName="emailFormControl"
+                                   [errorStateMatcher]="matcher">
+                            <mat-error *ngIf="emailError()">
+                               {{emailmsg_error}}
+                              </mat-error>
+                        </mat-form-field>
+                    
+                        <mat-form-field  class="login-form">
+                            <input matInput type="password" placeholder="Password" formControlName=passwordFormControl
+                                   [errorStateMatcher]="matcher">
+                                   
+                              <mat-error *ngIf="passwordError()">
+                               {{passwordmsg_error}}
+                              </mat-error>
+        
+                        </mat-form-field>
+                        <div class="login-form">
+                           <button mat-stroked-button color="basic">Connexion</button>
+                           
+                         </div>     
+                    
+                      <div class="login-form">
+                            <a href="javascript:void(0)" color="silver">mot de passe oublié?</a>
+                      </div>
+        
+                </form>
+           </div>
+</mat-toolbar>
+
+<app-register></app-register>

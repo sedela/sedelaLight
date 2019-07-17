@@ -1,0 +1,57 @@
+<!-- toolbar menu-->
+<app-toolbar-nav></app-toolbar-nav>
+<div fxLayout="row" class=ecritreflexif>
+  <div fxFlex=auto>
+    <mat-list>
+      <mat-list-item>
+        <form [formGroup]="contactForm">
+
+          <select formControlName="contactsControl" placeholder="Choisir étudiant" (change)="getListDocumentShared()">
+            <option></option>
+            <option *ngFor="let contacts of list_of_student_contacts" [ngValue]="contacts.contact_id"
+              >
+              {{contacts.contact_id}}
+            </option>
+
+          </select>
+
+        </form>
+
+      </mat-list-item>
+      <h3 mat-subheader>Liste des écrits réflexifs</h3>
+
+      <mat-list-item class="action-button"  *ngFor="let folder of list_of_shared_documents"
+        (click)=" openDocument(folder)">
+        <mat-icon mat-list-icon>folder_shared</mat-icon>
+        <h4 mat-line>{{folder.document_name}}</h4>
+        <p mat-line> {{folder.last_date_modified | date:'dd/MM/yyyy, HH:mm:ss'}} </p>
+      </mat-list-item>
+
+      <mat-divider></mat-divider>
+
+
+    </mat-list>
+
+  </div>
+  <div fxFlex=auto class=ecritreflexif>
+
+    <div class="blogforum">
+      <app-model 
+      [(html)]="htmls" 
+      [isReadOnly]="isReadOnly"
+       [text_default] = "text_default"
+       [editor_style]="editor_style"
+       [toolbarOptions]="toolbarOptions">
+      </app-model>
+
+    </div>
+
+    <div class="blogforum">
+      <app-forum [(listOfPost)]="list_of_comments" (postChange)='myPostChange($event)' [author]="getUserConnected()">
+      </app-forum>
+    </div>
+
+  </div>
+
+
+</div>

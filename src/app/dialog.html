@@ -1,0 +1,13 @@
+<mat-dialog-content>
+    <p>Donner un nom au document</p>
+    <mat-form-field>
+      <input matInput 
+      [(ngModel)]="data.documentname">
+    </mat-form-field>
+</mat-dialog-content>
+
+<mat-dialog-actions>
+    <button class="mat-raised-button" (click)="close()">Annuler</button>
+    <button class="mat-raised-button mat-primary" [mat-dialog-close]="data.documentname">Enregistrer</button>
+ </mat-dialog-actions> 
+

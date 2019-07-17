@@ -1,0 +1,28 @@
+.forum-card {
+  max-width: 400px;
+  margin: 5px;
+}
+
+#forum-card-right {
+  float: right;
+  background-color:rgb(124, 112, 144);
+}
+
+#forum-card-left {
+  float: left;
+  background-color: rgb(119,136,153);
+}
+.forum-header-image {
+    background-image: url('../assets/pictures/sedela.jpg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+
+  mat-card-content{
+    font-family: Georgia, "Times New Roman", Times, serif;
+    font-size: 14px;
+    text-size-adjust: auto;
+    text-justify: auto;
+    
+  }

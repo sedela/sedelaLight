@@ -1,0 +1,17 @@
+<app-toolbar-nav></app-toolbar-nav>
+<div class="example-container">
+  
+  <form [formGroup]="teacherGroup">
+      <select formControlName="studentControl">
+          <option value ='' disabled selected>Selectionner un etudiant </option>
+          <option *ngFor="let item of list_of_students" [ngValue]="item.email">{{item.email}}</option>
+        </select>
+        
+    <select formControlName="teacherControl">
+      <option value ='' disabled selected>Selectionner un enseignant </option>
+      <option *ngFor="let item of list_of_teachers" [ngValue]="item.email">{{item.email}}</option>
+    </select>
+    <button mat-button sytle="padding:0px" color="accent" (click)="onAssociate()">Associer</button>
+  </form>
+  
+</div>

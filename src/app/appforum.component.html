@@ -1,0 +1,65 @@
+<mat-accordion>
+  <mat-expansion-panel (opened)="panelOpenState = false" (closed)="panelOpenState = true">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Forum de discussion
+      </mat-panel-title>
+      <mat-panel-description>
+        Dépiler pour poster un commentaire
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+
+    <div [formGroup]="forumForm">
+      <mat-form-field>
+        <textarea matInput #message maxlength="256" placeholder="commentaire"
+          formControlName="contactFormModalMessage"> </textarea>
+        <mat-hint align="start"><strong>Ne divulguez pas d'informations personnelles</strong> </mat-hint>
+        <mat-hint align="end">{{message.value.length}} / 256</mat-hint>
+      </mat-form-field>
+
+      <button mat-raised-button color="accent" (click)=" addPost()">Publier post</button>
+    </div>
+  </mat-expansion-panel>
+</mat-accordion>
+<p></p>
+
+<div *ngIf="listOfPost?.length > 0">
+  <div *ngFor="let postes of listOfPost">
+    <ng-container *ngIf="postes.comment_author === author; then alignOnLeft; else alignOnRight">
+
+    </ng-container>
+    <ng-template #alignOnLeft>
+      <mat-card id="forum-card-left" class="forum-card">
+        <mat-card-header>
+          <div mat-card-avatar class="forum-header-image"></div>
+          <mat-card-title>{{postes.comment_author}}</mat-card-title>
+          <mat-card-subtitle>{{postes.date_posted | date:'dd/MM/yyyy, HH:mm:ss'}}</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+          <p>
+            {{postes.comment_content}}
+          </p>
+        </mat-card-content>
+      </mat-card>
+    </ng-template>
+
+    <ng-template #alignOnRight>
+      <mat-card id="forum-card-right" class="forum-card">
+        <mat-card-header>
+          <div mat-card-avatar class="forum-header-image"></div>
+          <mat-card-title>{{postes.comment_author}}</mat-card-title>
+          <mat-card-subtitle>{{postes.date_posted | date:'dd/MM/yyyy, HH:mm:ss'}}</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+         
+            {{postes.comment_content}}
+  
+        </mat-card-content>
+      </mat-card>
+
+    </ng-template>
+
+
+  </div>
+
+</div>

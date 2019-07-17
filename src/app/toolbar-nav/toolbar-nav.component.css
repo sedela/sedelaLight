@@ -1,0 +1,18 @@
+a {
+    text-decoration: none;
+    color: white;
+  }
+
+  span:hover,
+  a:hover,
+  a:active {
+    color: lightgray;
+  }
+  
+  span{
+    font-family: Georgia, "Times New Roman", Times, serif;
+    font-size: 18px;
+    color: lightgray;
+    margin: 5px;
+    
+   }
