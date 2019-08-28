@@ -1,5 +1,9 @@
+<<<<<<< HEAD
 # Welcome to sedela application
 ![Sedela](https://github.com/momoNiang/SedelaProject/blob/master/sedelaLight/src/assets/pictures/sedela.jpg)
+=======
+# SedelaLight
+>>>>>>> aed4239a2c72f6eb294f929b4ca932daefcac1ea
 
 # SedeLight
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.2.1.  
