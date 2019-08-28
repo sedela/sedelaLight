@@ -1,4 +1,4 @@
-<mat-accordion>
+<!--<mat-accordion>
   <mat-expansion-panel (opened)="panelOpenState = false" (closed)="panelOpenState = true">
     <mat-expansion-panel-header>
       <mat-panel-title>
@@ -21,6 +21,15 @@
     </div>
   </mat-expansion-panel>
 </mat-accordion>
+-->
+<div [formGroup]="forumForm">
+  <mat-form-field>
+    <textarea matInput #message maxlength="256" placeholder="commentaire"
+      formControlName="contactFormModalMessage"> </textarea>
+  </mat-form-field>
+
+  <button mat-raised-button color="accent" (click)=" addPost()">Publier post</button>
+</div>
 <p></p>
 
 <div *ngIf="listOfPost?.length > 0">

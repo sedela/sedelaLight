@@ -1,9 +1,123 @@
-# SedelaWithoutCozy
+# Welcome to sedela application
+![Sedela](https://github.com/momoNiang/SedelaProject/blob/master/sedelaLight/src/assets/pictures/sedela.jpg)
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.2.1.
+# SedeLight
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.2.1.  
 
-## Development server
+Live demo: https://sedela.enstb.org/
 
+
+## ​​Used technologies
+
+* HTML5, CSS3  
+* Angular 7
+* NodeJS
+* Express
+* Couchdb: a NoSql database
+* NodeMailer: module for Node.js to send emails
+* Nginx to host sedela application
+* Quill: open source WYSIWYG editor built for the modern web
+
+
+## Features
+
+* Register and authenfication
+* Create Document 
+* Load document 
+* Update document
+* Delete document
+* Share document between student and teacher
+* Chat: allow teachers to comment student's document and student to response them
+
+A **document** is a HTML content.
+
+## Screenshots 
+
+![connection](https://github.com/momoNiang/SedelaProject/blob/master/sedelaLight/src/assets/pictures/Sedela%20-%20sedela.enstb.org.png)
+
+![chat](https://github.com/momoNiang/SedelaProject/blob/master/sedelaLight/src/assets/pictures/forum.PNG)
+
+
+## Setting up the sedela project
+
+* First using sedela in dev mode requires :
+    * **npm** version >= 6.4.1`
+    * **node.js**  version >= 10.15.0 
+    * **Angular CLI** version >= 7.3.8
+    * **couchDB** or **MongoDb** 
+
+*  Then clone the app repository and install dependencies:
+
+```sh
+# in a terminal run this following commands
+$ https://github.com/momoNiang/SedelaProject.git
+$ cd sedelalight
+$ npm install 
+```
+## Data service
+
+#### Without Database autentification on localhost
+
+ * First modify the url of database and replace it for your own URL database in **/sedelaLight/src/app/service/sedela-model.service.ts** 
+ 
+ * Then replace **sedeladb** by your database's name
+
+ ```sh
+ # Example
+ export class SedelaModelService {
+
+  private apiURL: string = 'URl of your database;' 
+  private db_name: string = 'name of yourdatabase' ;
+  private db: any = new PouchDB(this.apiURL + '/' + this.db_name);
+  ----------------------------------
+ (following of the code)
+
+}
+
+ ```
+ #### With database authenfication on remote server
+
+ Modify  **/sedelaLight/src/app/config.ts** like this : 
+
+ ```sh
+ #Example
+export const ServiceAuthDbAdmin = {
+
+
+    apiUrl: 'your remote URL',
+    
+    db_info : {
+      user_name: 'admin username',
+      user_password: 'passeword of admin username'
+    }
+
+    
+}
+
+ ```
+
+* Then Modifiy **/sedelaLight/src/app/service/sedela-model.service.ts**  like this
+
+ ```sh
+#Example
+ export class SedelaModelService {
+
+  url_remote = 'remote database';
+  apiURL: string =  ServiceAuthDbAdmin.apiUrl;
+  db_auth: any = ServiceAuthDbAdmin.db_info;
+  db: any =  new PouchDB( this.apiURL, {
+    auth: { username: this.db_auth.user_name, password: this.db_auth.user_password }
+  });
+    ----------------------------------
+ (following of the code)
+
+}
+
+ ```
+
+
+## Development server on localhost
+ 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
 ## Code scaffolding

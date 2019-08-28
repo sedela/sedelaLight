@@ -22,7 +22,7 @@ app.get('/', function (req, res) {
 app.post('/sendmail', (req, res) => {
   console.log(req.body, 'data of form');
   var transporter = nodeMailer.createTransport({
-    service: 'gmail',
+    service: 'gmail', 
     port: 587,
     secure: false,
     auth: {
