@@ -18,6 +18,9 @@ Live demo: https://sedela.enstb.org/
 * Nginx to host sedela application
 * Quill: open source WYSIWYG editor built for the modern web
 
+### Model and composants
+![Data Model](https://github.com/momoNiang/SedelaProject/blob/master/sedelaLight/src/assets/pictures/DataModel.jpg)
+
 
 ## Features
 
@@ -30,12 +33,33 @@ Live demo: https://sedela.enstb.org/
 * Chat: allow teachers to comment student's document and student to response them
 
 A **document** is a HTML content.
+## Users statut
 
-## Screenshots 
+  Sedela application can be used by three type of users 
 
-![connection](https://github.com/momoNiang/SedelaProject/blob/master/sedelaLight/src/assets/pictures/Sedela%20-%20sedela.enstb.org.png)
+  * **Student** : can create, update, comment and share his documents with his teacher
+  * **Teacher** : can read and comment on his students' documents
+  * **sedela Admin** : can associate teachers with students.
 
-![chat](https://github.com/momoNiang/SedelaProject/blob/master/sedelaLight/src/assets/pictures/forum.PNG)
+
+
+## Screenshots
+
+  ####  Connection View
+  
+
+  ![Connection View](https://github.com/momoNiang/SedelaProject/blob/master/sedelaLight/src/assets/pictures/connectview.png)
+
+  #### Example of Student View
+  ![Student View](https://github.com/momoNiang/SedelaProject/blob/master/sedelaLight/src/assets/pictures/studentview.PNG)
+
+  #### Example of Teacher View 
+
+  ![Teacher View](https://github.com/momoNiang/SedelaProject/blob/master/sedelaLight/src/assets/pictures/teacherview.png)  
+
+  #### Admin View
+
+  ![Sedela Admin View](https://github.com/momoNiang/SedelaProject/blob/master/sedelaLight/src/assets/pictures/adminsedelaview.png)
 
 
 ## Setting up the sedela project
@@ -77,14 +101,16 @@ $ npm install
  ```
  #### With database authenfication on remote server
 
- Modify  **/sedelaLight/src/app/config.ts** like this : 
+ * First modify or create  **/sedelaLight/src/app/config.ts**. this parameters are required
+    * Login or username of the administrator of the database 
+    * Password of the administrator of the database 
 
  ```sh
  #Example
 export const ServiceAuthDbAdmin = {
 
 
-    apiUrl: 'your remote URL',
+    apiUrl: 'your remote database URL',
     
     db_info : {
       user_name: 'admin username',
@@ -102,7 +128,6 @@ export const ServiceAuthDbAdmin = {
 #Example
  export class SedelaModelService {
 
-  url_remote = 'remote database';
   apiURL: string =  ServiceAuthDbAdmin.apiUrl;
   db_auth: any = ServiceAuthDbAdmin.db_info;
   db: any =  new PouchDB( this.apiURL, {
