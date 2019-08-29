@@ -14,7 +14,7 @@ Live demo: https://sedela.enstb.org/
 * NodeJS
 * Express
 * Couchdb: a NoSql database
-* NodeMailer: module for Node.js to send emails
+* NodeMailer: module for Nodejs to send emails
 * Nginx to host sedela application
 * Quill: open source WYSIWYG editor built for the modern web
 
@@ -46,7 +46,7 @@ A **document** is a HTML content.
 ## Screenshots
 
   ####  Connection View
-  
+
 
   ![Connection View](https://github.com/momoNiang/SedelaProject/blob/master/sedelaLight/src/assets/pictures/connectview.png)
 
@@ -139,6 +139,54 @@ export const ServiceAuthDbAdmin = {
 }
 
  ```
+
+## Quill integration in Angular 7
+
+  * First  install Quill  module using npm:
+     ```sh
+        npm install --save quill
+     ```
+ *  Then install angular component for the Quill:
+     ```sh
+       npm install --save ngx-quill
+     ```
+* Finally add quilljs styling to **angular.json** inside **Styles":[ ]** in **/sedelaLight/angular.json**:
+ ```sh
+       "node_modules/quill/dist/quill.snow.css",
+       "node_modules/quill/dist/quill.bubble.css" 
+  ```
+see [angular.js](https://github.com/momoNiang/SedelaProject/blob/master/sedelaLight/angular.json)
+
+
+ #### How Quill is used on sedela project
+    
+  * Import and declare the QuillModule to NgModule in **/sedelaLight/src/app/app.module.ts**:
+  
+      ```sh
+         @NgModule({
+          imports: [
+            ...,
+
+            QuillModule
+          ],
+          ...
+        })
+
+       class AppModule { ... }
+      
+``
+
+ * Now you can use Quill like an angular component: 
+  
+
+  ```sh
+       #use the following code in your templates to add a default quill editor:
+      <quill-editor></quill-editor>
+    ```
+  
+  
+In this project quill component is implemented like this in **/sedelaLight/src/app/appmodel.component.ts** : 
+  [quill-component](https://github.com/momoNiang/SedelaProject/blob/master/sedelaLight/src/app/appmodel.component.ts)
 
 
 ## Development server on localhost
