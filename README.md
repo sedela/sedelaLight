@@ -161,8 +161,8 @@ see [angular.js](https://github.com/momoNiang/SedelaProject/blob/master/sedelaLi
  #### How Quill is used on sedela project
     
   * Import and declare the QuillModule to NgModule in **/sedelaLight/src/app/app.module.ts**:
-  
-      ```sh
+   
+ ```sh
          @NgModule({
           imports: [
             ...,
@@ -173,19 +173,18 @@ see [angular.js](https://github.com/momoNiang/SedelaProject/blob/master/sedelaLi
         })
 
        class AppModule { ... }
-      
-``
-
+```
+####
  * Now you can use Quill like an angular component: 
-  
+```sh
 
-  ```sh
        #use the following code in your templates to add a default quill editor:
       <quill-editor></quill-editor>
-    ```
+
+```
   
-  
-In this project quill component is implemented like this in **/sedelaLight/src/app/appmodel.component.ts** : 
+ 
+In this project quill component is implemented  in **/sedelaLight/src/app/appmodel.component.ts** : 
   [quill-component](https://github.com/momoNiang/SedelaProject/blob/master/sedelaLight/src/app/appmodel.component.ts)
 
 
